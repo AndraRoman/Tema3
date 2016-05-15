@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TemaPS2.Models.Spectacol>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titlul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Regia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distributia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPremierei)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrBilete)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titlul)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distributia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPremierei)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrBilete)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.SpectacolID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.SpectacolID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.SpectacolID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
